@@ -205,7 +205,7 @@
       <div class="hero-card">
         <span class="badge" aria-hidden="true">Official Fan Prototype</span>
         <h1>Justin Bieber</h1>
-        <p>Welcome to a fast, clean prototype fan page celebrating Justin Bieber — his music, moments, and community. Built with plain HTML, CSS, and JavaScript so you can drop it anywhere and extend easily.</p>
+        <p>ITS NOT CLOCKING TO YOU THAT IM STANDING ON BUSINESS</p>
         <div class="cta">
           <a href="#music" class="btn">Explore Music</a>
           <button class="btn secondary" id="shuffleSong">Shuffle a Song</button>
@@ -243,7 +243,7 @@
     <section id="gallery">
       <div class="section-head">
         <h2>Gallery</h2>
-        <p>Highlights through the years (placeholder images — swap with your own).</p>
+        <p>Highlights through the years</p>
       </div>
       <div class="gallery" id="galleryGrid" aria-live="polite"></div>
     </section>
@@ -435,27 +435,29 @@
       alert('Random pick: ' + pick);
     });
 
-    // ---------- Gallery (placeholder images) ----------
-    const gallery = document.getElementById('galleryGrid');
-    const pics = [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Justin_Bieber_in_2022.jpg/640px-Justin_Bieber_in_2022.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Justin_Bieber_2012_2.jpg/640px-Justin_Bieber_2012_2.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Justin_Bieber_2016.jpg/640px-Justin_Bieber_2016.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Justin_Bieber_Cannes_2016.jpg/640px-Justin_Bieber_Cannes_2016.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Justin_Bieber_Cannes_2016_3.jpg/640px-Justin_Bieber_Cannes_2016_3.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Justin_Bieber_MTV_2015.jpg/640px-Justin_Bieber_MTV_2015.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Justin_Bieber_2015.jpg/640px-Justin_Bieber_2015.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Justin_Bieber_NRJ_Music_Awards_2015.jpg/640px-Justin_Bieber_NRJ_Music_Awards_2015.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Justin_Bieber_2012_3.jpg/640px-Justin_Bieber_2012_3.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Justin_Bieber_MTV_2011.jpg/640px-Justin_Bieber_MTV_2011.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Justin_Bieber_2010.jpg/640px-Justin_Bieber_2010.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Justin_Bieber_2009.jpg/640px-Justin_Bieber_2009.jpg'
-    ];
-    pics.forEach(src => {
-      const wrap = document.createElement('div'); wrap.className = 'g';
-      const img = new Image(); img.loading = 'lazy'; img.src = src; img.alt = 'Justin Bieber photo';
-      wrap.appendChild(img); gallery.appendChild(wrap);
-    });
+ // ---------- Gallery (local images) ----------
+const gallery = document.getElementById('galleryGrid');
+
+// Repeat the same local image multiple times (or add different local files if available)
+const pics = [
+  'justin1.jpg',
+  'justin1.jpg',
+  'justin1.jpg',
+  'justin1.jpg',
+  'justin1.jpg',
+  'justin1.jpg'
+];
+
+pics.forEach(src => {
+  const wrap = document.createElement('div');
+  wrap.className = 'g';
+  const img = new Image();
+  img.loading = 'lazy';
+  img.src = src; // Local path
+  img.alt = 'Justin Bieber photo';
+  wrap.appendChild(img);
+  gallery.appendChild(wrap);
+});
 
     // ---------- Tour (sample, mock) ----------
     const tourData = [
