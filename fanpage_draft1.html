@@ -360,10 +360,8 @@
     const playTrailer = document.getElementById('playTrailer');
     const closeTrailer = document.getElementById('closeTrailer');
     playTrailer.addEventListener('click', () => trailer.showModal());
-    closeTrailer.addEventListener('click', () => {
-      trailer.close();
-      document.getElementById('yt').src = ''; // stop video
-    });
+    closeTrailer.addEventListener('click', () => trailer.close());
+
     // ---------- Discography Data (sample) ----------
     const albums = [
       { title: 'Justice', year: 2021, tracks: ['Peaches', 'Hold On', "Anyone"], color: '#10b981' },
@@ -374,29 +372,6 @@
       { title: 'My World 2.0', year: 2010, tracks: ['Baby', 'Eenie Meenie', 'Somebody to Love'], color: '#a855f7' },
       { title: 'My World', year: 2009, tracks: ['One Time', 'One Less Lonely Girl'], color: '#06b6d4' },
     ];
-
-    const trackLinks = {
-      'Peaches': 'https://www.youtube.com/embed/tQ0yjYUFKAE',
-      'Hold On': 'https://www.youtube.com/embed/3AyMjyHu1bA',
-      'Anyone': 'https://www.youtube.com/embed/KRvn1b8vEOw',
-      'Yummy': 'https://www.youtube.com/embed/8EJ3zbKTWQ8',
-      'Intentions': 'https://www.youtube.com/embed/6M1H2mv6GI0',
-      'Forever': 'https://www.youtube.com/embed/mYfJxlgR2jw',
-      'What Do You Mean?': 'https://www.youtube.com/embed/DK_0jXPuIr0',
-      'Sorry': 'https://www.youtube.com/embed/fRh_vgS2dFE',
-      'Love Yourself': 'https://www.youtube.com/embed/oyEuk8j8imI',
-      'Boyfriend': 'https://www.youtube.com/embed/4GuqB1BQVr4',
-      'Beauty and a Beat': 'https://www.youtube.com/embed/4GuqB1BQVr4',
-      'As Long As You Love Me': 'https://www.youtube.com/embed/R4em3LKQCAQ',
-      'Mistletoe': 'https://www.youtube.com/embed/L6S5NUoUIXY',
-      'Drummer Boy': 'https://www.youtube.com/embed/QcAbmGPd3Hk',
-      'Baby': 'https://www.youtube.com/embed/kffacxfA7G4',
-      'Eenie Meenie': 'https://www.youtube.com/embed/prmmCg5bKxA',
-      'Somebody to Love': 'https://www.youtube.com/embed/4Xjgw36kdlI',
-      'One Time': 'https://www.youtube.com/embed/CHVhwcOg6y8',
-      'One Less Lonely Girl': 'https://www.youtube.com/embed/LXUSaVw3Mvk'
-    };
-
 
     const albumGrid = document.getElementById('albumGrid');
     const search = document.getElementById('search');
@@ -444,12 +419,7 @@
     albumGrid.addEventListener('click', (e) => {
       const play = e.target.closest('[data-play]');
       const fav = e.target.closest('[data-fav]');
-      if (play) {
-        const track = play.dataset.play;
-        const url = trackLinks[track] || 'https://www.youtube.com/embed/tQ0yjYUFKAE'; // fallback
-        document.getElementById('yt').src = url + '?autoplay=1';
-        trailer.showModal();
-      }
+      if (play) { alert('Pretend playing: ' + play.dataset.play); }
       if (fav) {
         const f = JSON.parse(localStorage.getItem('favorites')||'[]');
         if (!f.includes(fav.dataset.fav)) f.push(fav.dataset.fav);
