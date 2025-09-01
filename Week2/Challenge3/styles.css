@@ -1,0 +1,191 @@
+/* styles.css - Challenge #3 (Skeleton: Park Map - Positioning) */
+
+
+/* 0) Base page (font, background, text color, remove default margins) */
+html, body {
+   height: 100%;
+}
+
+body {
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   background-color: bisque;
+   margin: 0;
+}
+
+/* 1) Container (center, max-width, padding) */
+.container {
+   margin: auto;
+   max-width: 850px;
+   padding: 0 30px;
+}
+
+
+/* 2) Map section heading (spacing, readability) */
+.site-header {
+   padding: 10px 0;
+}
+
+
+/* 3) Map wrapper
+   - Make this the positioning context for absolute children (hint: relative).
+   - Ensure it doesn't overflow horizontally.
+*/
+.map-wrapper {
+   position: relative;       
+   max-width: 100%;
+   overflow: hidden;
+   border-radius: 12px;
+   border: 1px solid #e6e6e6;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+   background: #ffffff;      /* positioning context for markers + legend */
+
+}
+
+
+/* 4) Map image
+   - Keep it responsive inside the container (full width of wrapper, auto height).
+*/
+
+.park-map {
+   width: 100%;
+   height: auto;
+}
+
+
+/* 5) Markers
+   - Style as small circular buttons (size, color, border-radius).
+   - Absolutely position them using top/left percentages so they sit over the map.
+   - Center each marker over its coordinates (hint: translate).
+   - Ensure markers appear ABOVE the map (z-index).
+*/
+/* Shared z-index layers */
+.map-wrapper .park-map { z-index: 1; }
+.marker { z-index: 2; }
+.tooltip { z-index: 3; }
+.legend { z-index: 4; }
+
+.marker {
+   position: absolute;
+   width: 16px;
+   height:16px;
+   border-radius: 50%;
+   background: #e91e63;
+   border: 2px solid #ffffff;
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+   transform: translate(-50%, -50%); /* center over coordinates */
+   cursor: pointer;
+
+}
+
+/* positioning of markers */
+#marker-atlantis { top: 32%; left: 22%; }
+#marker-gyro     { top: 18%; left: 78%; }
+#marker-carousel { top: 62%; left: 30%; }
+#marker-river    { top: 70%; left: 70%; }
+
+
+
+/* 6) Tooltips
+   - Hidden by default; visible on hover of the marker.
+   - Small label box above the marker (position absolute relative to marker).
+   - Add a subtle background, border, and rounded corners.
+   - Raise above map and marker with z-index.
+*/
+.marker .tooltip {
+   position: absolute;
+   bottom: 140%;
+   left: 50%;
+   transform: translateX(-50%);
+   white-space: nowrap;
+   background: #111111;
+   color: #ffffff;
+   font-size: 0.85rem;
+   padding: 6px 8px;
+   border-radius: 8px;
+   opacity: 0;
+   pointer-events: none;
+   transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.marker:hover .tooltip {
+   opacity: 1;
+   transform: translateX(-50%) translateY(-2px);
+} 
+
+
+/* 7) Legend box
+   - Position absolute INSIDE the map wrapper, bottom-right corner.
+   - Add background, padding, small rounded corners.
+   - Keep text legible and compact.
+*/
+.legend {
+   position: absolute;
+   right: 12px;
+   bottom: 12px;
+   background: rgba(255, 255, 255, 0.9);
+   border: 1px solid #dddddd;
+   border-radius: 10px;
+   padding: 10px 12px;
+   font-size: 0.9rem;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+}
+
+
+/* 8) Fixed Back to Top button
+   - Position fixed at bottom-right of viewport.
+   - Visible at all times.
+   - Style as a small pill button.
+   - Keep above everything with z-index.
+*/
+.back-to-top {
+   position: fixed;
+   right: 16px;
+   bottom: 16px;
+   background-color: blue;
+   color: white;
+   padding: 10px 14px;
+   text-decoration: none;
+   border-radius: 999px;
+   z-index: 999;
+
+
+}
+
+/* 9) Footer (muted, centered) */
+.site-footer {
+   border-top: solid 2px grey;
+   text-align: center;
+   padding: 100px 0 20px 0;
+}
+
+
+/* 10) Getting Here & Around section styling  */
+.transport-columns {
+   display: flex;
+   margin: 10px 0 20px 0;
+}
+
+.transport-info {
+   flex: 1;
+   padding: 10px 20px;
+   border-radius: 10px;
+   background-color: beige;
+   /* margin: 10px 30px; */
+
+
+}
+
+.transport-discounts {
+   flex: 1;
+   padding: 10px 20px;
+   border-radius: 10px;
+   background-color: beige;
+   /* margin: 10px 20px; */
+   padding:
+
+}
+
+
+
+
