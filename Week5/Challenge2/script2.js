@@ -113,7 +113,7 @@ function get_by_gender(gender) {
 async function get_weather(city) {
 
     console.log("=== [START] check_weather() ===");
-    const weather_api_key = '08c8f631b3aaa95f6628204508437904';
+    const weather_api_key = 'xxx';
 
     let api_endpoint = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weather_api_key}&units=metric`;
     try {
